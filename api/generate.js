@@ -42,7 +42,7 @@ Write only the final copy.`;
 
   try {
     const response = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
       {
         method: 'POST',
         headers: {
@@ -52,7 +52,9 @@ Write only the final copy.`;
         body: JSON.stringify({
           contents: [{ parts: [{ text: userPrompt }] }],
           systemInstruction: { parts: [{ text: systemPrompt }] },
-          generationConfig: { maxOutputTokens: 500 }
+          generationConfig: {
+            maxOutputTokens: 1024
+          }
         })
       }
     );
