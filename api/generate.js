@@ -54,9 +54,7 @@ Write only the final copy.`;
           systemInstruction: { parts: [{ text: systemPrompt }] },
           generationConfig: {
             maxOutputTokens: 1024,
-            thinkingConfig: {
-              thinkingBudget: 0
-            }
+            
           }
         })
       }
