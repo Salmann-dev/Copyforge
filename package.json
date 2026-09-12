@@ -1,0 +1,9 @@
+{
+  "name": "ai-boilerplate-copy-generator",
+  "version": "1.0.0",
+  "description": "AI-powered tool that generates on-brand product descriptions and social posts using the Google Gemini API.",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev"
+  }
+}
