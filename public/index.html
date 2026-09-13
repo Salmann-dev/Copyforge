@@ -3,107 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Boilerplate Copy Generator</title>
+  <title>Copyforge — Write copy that sounds like you</title>
   <meta name="description" content="Generate on-brand product descriptions and social posts using AI, based on your own brand voice guidelines.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient-mesh" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-  </div>
-
   <main class="page">
-    <header class="page-header">
-      <span class="section-tag">AI-Powered Copywriting</span>
-      <h1>AI Boilerplate Copy Generator</h1>
-      <p class="page-subtitle">
-        Generate on-brand product descriptions and social posts in seconds — trained on the voice guidelines you provide, not generic AI filler.
-      </p>
+    <header class="masthead">
+      <span class="masthead-mark">Copyforge</span>
+      <h1>Write copy that<br>sounds like you.</h1>
+      <p class="masthead-sub">Describe your voice once. Get product descriptions and social posts that actually sound like your brand wrote them.</p>
     </header>
 
-    <div class="app-grid">
-      <!-- Input Panel -->
-      <section class="panel glass-panel">
-        <h2 class="panel-title">1. Describe Your Brand & Product</h2>
+    <div class="hr"></div>
 
-        <form id="generator-form">
-          <div class="field-group">
-            <label for="brand-voice">Brand Voice Guidelines</label>
-            <textarea
-              id="brand-voice"
-              placeholder="e.g. Playful but confident. Short punchy sentences. Avoid corporate jargon. We speak like a knowledgeable friend, not a salesperson."
-              required
-            ></textarea>
-            <span class="field-hint">Be specific — tone, sentence style, words to avoid, examples you like.</span>
-          </div>
+    <form id="generator-form" class="sheet">
+      <div class="line-field">
+        <label for="brand-voice">Brand voice</label>
+        <textarea
+          id="brand-voice"
+          rows="2"
+          placeholder="Playful and confident. Short sentences. No corporate jargon."
+          required
+        ></textarea>
+      </div>
 
-          <div class="field-group">
-            <label>Content Type</label>
-            <div class="radio-chips">
-              <label class="chip">
-                <input type="radio" name="contentType" value="product_description" checked>
-                <span>Product Description</span>
-              </label>
-              <label class="chip">
-                <input type="radio" name="contentType" value="social_post">
-                <span>Social Media Post</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="field-group" id="platform-field" style="display: none;">
-            <label for="platform">Platform</label>
-            <select id="platform">
-              <option value="Instagram">Instagram</option>
-              <option value="Twitter / X">Twitter / X</option>
-              <option value="Facebook">Facebook</option>
-              <option value="LinkedIn">LinkedIn</option>
-              <option value="TikTok caption">TikTok caption</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="product-info">Product / Topic Details</label>
-            <textarea
-              id="product-info"
-              placeholder="e.g. Handmade ceramic mugs, microwave-safe, made locally, $18, great for coffee lovers who want something unique on their desk."
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn-generate" id="generate-btn">
-            <span class="btn-text">Generate Copy</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
-          </button>
-
-          <p class="error-message" id="error-message" role="alert"></p>
-        </form>
-      </section>
-
-      <!-- Output Panel -->
-      <section class="panel glass-panel output-panel">
-        <h2 class="panel-title">2. Generated Copy</h2>
-
-        <div class="output-empty" id="output-empty">
-          <div class="output-empty-icon">✨</div>
-          <p>Your generated copy will appear here.</p>
+      <div class="line-field">
+        <label>What are you writing?</label>
+        <div class="choice-row">
+          <label class="choice">
+            <input type="radio" name="contentType" value="product_description" checked>
+            <span>Product description</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="contentType" value="social_post">
+            <span>Social media post</span>
+          </label>
         </div>
+      </div>
 
-        <div class="output-result" id="output-result" style="display: none;">
-          <p id="output-text"></p>
-          <button class="btn-copy" id="copy-btn">
-            <span id="copy-btn-text">Copy to Clipboard</span>
-          </button>
-        </div>
-      </section>
-    </div>
+      <div class="line-field" id="platform-field" style="display: none;">
+        <label for="platform">Platform</label>
+        <select id="platform">
+          <option value="Instagram">Instagram</option>
+          <option value="Twitter / X">Twitter / X</option>
+          <option value="Facebook">Facebook</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="TikTok caption">TikTok caption</option>
+        </select>
+      </div>
+
+      <div class="line-field">
+        <label for="product-info">Tell us about it</label>
+        <textarea
+          id="product-info"
+          rows="2"
+          placeholder="Insulated stainless steel water bottle, $28, keeps drinks cold for 24 hours."
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="write-btn" id="generate-btn">
+        <span class="btn-text">Write it</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+
+      <p class="error-message" id="error-message" role="alert"></p>
+    </form>
+
+    <div class="hr"></div>
+
+    <section class="result-area">
+      <div class="output-empty" id="output-empty">
+        <p>Your copy will appear here once it's written.</p>
+      </div>
+
+      <div class="output-page" id="output-result" style="display: none;">
+        <div class="page-fold" aria-hidden="true"></div>
+        <p id="output-text"></p>
+        <button class="copy-link" id="copy-btn">
+          <span id="copy-btn-text">Copy this</span>
+        </button>
+      </div>
+    </section>
 
     <footer class="page-footer">
-      <p>Built by Salman — <a href="/" target="_blank" rel="noopener noreferrer">view portfolio</a></p>
+      <p>Built by Salman</p>
     </footer>
   </main>
 
